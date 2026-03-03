@@ -1,22 +1,41 @@
 {
   "name": "postprettify",
   "displayName": "PostPrettify",
-  "description": "Visual PostgreSQL database manager for VS Code",
+  "description": "Visual PostgreSQL manager — browse tables, edit data, manage schema and visualize relations without leaving VS Code.",
   "version": "0.1.0",
   "publisher": "postprettify",
+  "license": "MIT",
+  "icon": "resources/icon.png",
+  "galleryBanner": {
+    "color": "#0f1117",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/demreyes/postprettify"
+  },
+  "bugs": {
+    "url": "https://github.com/demreyes/postprettify/issues"
+  },
+  "homepage": "https://github.com/demreyes/postprettify#readme",
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
     "Other",
-    "Visualization"
+    "Visualization",
+    "Data Science"
   ],
   "keywords": [
     "postgresql",
     "postgres",
     "database",
     "sql",
-    "visual"
+    "visual",
+    "erd",
+    "db manager",
+    "table editor",
+    "query editor"
   ],
   "activationEvents": [
     "onView:postprettify.connectionExplorer"
@@ -99,14 +118,16 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run build",
+    "vscode:prepublish": "NODE_ENV=production npm run build",
     "build": "node esbuild.js && npm run build:webview",
     "build:webview": "cd webview-ui && npm run build",
     "watch": "node esbuild.js --watch",
     "watch:webview": "cd webview-ui && npm run dev",
     "lint": "eslint src --ext ts",
     "pretest": "npm run build",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "package": "vsce package",
+    "publish": "vsce publish"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
@@ -114,6 +135,7 @@
     "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "@vscode/vsce": "^3.7.1",
     "esbuild": "^0.20.0",
     "eslint": "^8.0.0",
     "typescript": "^5.3.0"
