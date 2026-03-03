@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+webview-ui/node_modules/
+
+# Build output
+dist/
+webview-ui/dist/
+
+# VS Code extension packaging
+*.vsix
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Claude Code — local AI session data, never goes to git
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.vscode/launch.json
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# TypeScript
+*.tsbuildinfo

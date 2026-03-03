@@ -1,0 +1,6 @@
+ Levanta uno rápido con Docker:
+  docker run --name pg-test \
+    -e POSTGRES_PASSWORD=postgres \
+    -p 5432:5432 \
+    -d postgres:16
+  Credenciales: host=localhost, port=5432, db=postgres, user=postgres, pass=postgres

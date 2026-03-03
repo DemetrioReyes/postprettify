@@ -1,0 +1,124 @@
+{
+  "name": "postprettify",
+  "displayName": "PostPrettify",
+  "description": "Visual PostgreSQL database manager for VS Code",
+  "version": "0.1.0",
+  "publisher": "postprettify",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "postgresql",
+    "postgres",
+    "database",
+    "sql",
+    "visual"
+  ],
+  "activationEvents": [
+    "onView:postprettify.connectionExplorer"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "postprettify.openPanel",
+        "title": "Open PostPrettify Panel",
+        "category": "PostPrettify"
+      },
+      {
+        "command": "postprettify.addConnection",
+        "title": "Add Connection",
+        "category": "PostPrettify",
+        "icon": "$(add)"
+      },
+      {
+        "command": "postprettify.removeConnection",
+        "title": "Remove Connection",
+        "category": "PostPrettify",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "postprettify.refreshConnections",
+        "title": "Refresh",
+        "category": "PostPrettify",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "postprettify.openTable",
+        "title": "Open Table",
+        "category": "PostPrettify"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "postprettify",
+          "title": "PostPrettify",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "postprettify": [
+        {
+          "id": "postprettify.connectionExplorer",
+          "name": "Connections",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "postprettify.addConnection",
+          "when": "view == postprettify.connectionExplorer",
+          "group": "navigation"
+        },
+        {
+          "command": "postprettify.refreshConnections",
+          "when": "view == postprettify.connectionExplorer",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "postprettify.removeConnection",
+          "when": "view == postprettify.connectionExplorer && viewItem == connection",
+          "group": "inline"
+        },
+        {
+          "command": "postprettify.openTable",
+          "when": "view == postprettify.connectionExplorer && viewItem == table",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "node esbuild.js && npm run build:webview",
+    "build:webview": "cd webview-ui && npm run build",
+    "watch": "node esbuild.js --watch",
+    "watch:webview": "cd webview-ui && npm run dev",
+    "lint": "eslint src --ext ts",
+    "pretest": "npm run build",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/pg": "^8.11.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "esbuild": "^0.20.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "pg": "^8.11.0"
+  }
+}

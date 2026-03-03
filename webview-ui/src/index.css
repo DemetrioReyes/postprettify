@@ -1,0 +1,108 @@
+/* VS Code theme CSS variables are injected by the host */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--vscode-font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  font-size: var(--vscode-font-size, 13px);
+  color: var(--vscode-foreground, #cccccc);
+  background-color: var(--vscode-editor-background, #1e1e1e);
+  overflow: hidden;
+}
+
+:root {
+  --pp-bg: var(--vscode-editor-background, #1e1e1e);
+  --pp-bg-secondary: var(--vscode-sideBar-background, #252526);
+  --pp-bg-hover: var(--vscode-list-hoverBackground, #2a2d2e);
+  --pp-bg-active: var(--vscode-list-activeSelectionBackground, #094771);
+  --pp-border: var(--vscode-panel-border, #3c3c3c);
+  --pp-text: var(--vscode-foreground, #cccccc);
+  --pp-text-muted: var(--vscode-descriptionForeground, #999);
+  --pp-accent: var(--vscode-focusBorder, #007fd4);
+  --pp-error: var(--vscode-errorForeground, #f44747);
+  --pp-success: #4ec9b0;
+  --pp-input-bg: var(--vscode-input-background, #3c3c3c);
+  --pp-input-border: var(--vscode-input-border, #3c3c3c);
+  --pp-button-bg: var(--vscode-button-background, #0e639c);
+  --pp-button-fg: var(--vscode-button-foreground, #fff);
+  --pp-button-hover: var(--vscode-button-hoverBackground, #1177bb);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--pp-border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--pp-text-muted); }
+
+/* Utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-1 { flex: 1; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 8px; }
+.gap-4 { gap: 16px; }
+.p-2 { padding: 8px; }
+.p-4 { padding: 16px; }
+.w-full { width: 100%; }
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Form elements */
+input, select, textarea {
+  background: var(--pp-input-bg);
+  border: 1px solid var(--pp-input-border);
+  color: var(--pp-text);
+  border-radius: 2px;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--pp-accent);
+}
+
+button {
+  background: var(--pp-button-bg);
+  color: var(--pp-button-fg);
+  border: none;
+  border-radius: 2px;
+  padding: 5px 12px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+button:hover { background: var(--pp-button-hover); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.secondary {
+  background: transparent;
+  border: 1px solid var(--pp-border);
+  color: var(--pp-text);
+}
+button.secondary:hover { background: var(--pp-bg-hover); }
+button.danger {
+  background: var(--pp-error);
+  color: #fff;
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  border-radius: 10px;
+  font-size: 11px;
+  background: var(--pp-border);
+  color: var(--pp-text-muted);
+}
+
+/* Tag */
+.tag-pk { color: #dcdcaa; font-size: 10px; font-weight: 600; }
+.tag-fk { color: #9cdcfe; font-size: 10px; font-weight: 600; }
+.tag-null { color: var(--pp-text-muted); font-size: 10px; }
