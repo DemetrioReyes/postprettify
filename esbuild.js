@@ -1,6 +1,7 @@
 const esbuild = require('esbuild');
 
 const watch = process.argv.includes('--watch');
+const isProd = process.env.NODE_ENV === 'production';
 
 const buildOptions = {
   entryPoints: ['src/extension.ts'],
@@ -10,8 +11,8 @@ const buildOptions = {
   format: 'cjs',
   platform: 'node',
   target: 'node18',
-  sourcemap: true,
-  minify: false,
+  sourcemap: isProd ? false : true,
+  minify: isProd,
 };
 
 if (watch) {

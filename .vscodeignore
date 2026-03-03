@@ -1,14 +1,47 @@
-.vscode/**
-.vscode-test/**
+# Source code — not needed in the packaged extension
 src/**
 webview-ui/src/**
-webview-ui/node_modules/**
-node_modules/**
-.gitignore
-.eslintrc.json
-esbuild.js
+webview-ui/public/**
+
+# Config files
 tsconfig.json
+webview-ui/tsconfig.json
+webview-ui/vite.config.ts
+webview-ui/package.json
+webview-ui/package-lock.json
+esbuild.js
+.eslintrc.json
+.eslintignore
+
+# Dependencies (bundled already by esbuild/vite)
+node_modules/**
+webview-ui/node_modules/**
+
+# Tests
+.vscode-test/**
+**/*.test.ts
+**/*.spec.ts
+
+# Build artifacts — exclude source maps and TS sources but keep compiled output
 **/*.map
 **/*.ts
 !dist/**
 !webview-ui/dist/**
+
+# Loose files that shouldn't go in the package
+servidor.txt
+webview-ui/tsconfig.node.json
+
+# Exclude source maps from the dist (not needed by end users)
+dist/**/*.map
+webview-ui/dist/**/*.map
+
+# Git and tooling
+.gitignore
+.claude/
+.vscode/**
+*.vsix
+
+# Misc
+.DS_Store
+*.log

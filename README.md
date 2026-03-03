@@ -2,7 +2,9 @@
 
 Un gestor visual de PostgreSQL que vive dentro de VS Code. Sin apps extra, sin cambiar de ventana — abres el panel y trabajas con tu base de datos directo desde el editor.
 
-> **En desarrollo.** Lo estoy construyendo para mi propio flujo de trabajo pero lo hago público por si a alguien más le sirve. Pueden haber bugs. Cualquier PR es bienvenido.
+> **En desarrollo activo.** Pueden haber bugs. Cualquier PR es bienvenido.
+
+**[→ Instalar desde el VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=postprettify.postprettify)**
 
 ---
 
@@ -73,7 +75,6 @@ Cosas que sé que necesitan trabajo:
 - No hay suite de tests todavía
 - El layout del ERD podría ser más inteligente (auto-acomodar por relaciones FK)
 - Soporte para MySQL / SQLite sería bueno eventualmente
-- La extensión todavía no está publicada en el marketplace
 
 ---
 
